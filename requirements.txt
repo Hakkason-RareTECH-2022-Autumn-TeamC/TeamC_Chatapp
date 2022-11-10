@@ -9,4 +9,4 @@ SQLAlchemy==1.4.43
 flask-sqlalchemy==3.0.2
 greenlet==2.0.1
 pytz==2022.6
-flask-login==0.6.2
+flask_login==0.6.2
