@@ -9,6 +9,10 @@ import os
 from datetime import datetime
 import pytz
 
+
+
+
+# ---------------------------- 以下は教材youtubeで記述された模範コード（転用時は注意）----------------------------
 # app = Flask(__name__)
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chat.db"
 # app.config["SECRET_KEY"] = os.urandom(24)
