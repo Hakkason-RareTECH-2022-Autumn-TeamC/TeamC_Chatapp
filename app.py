@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, LoginManager
+from flask_login import UserMixin, LoginManager, login_user, logout_user
 
 from werkzeug.security import generate_password_hash, check_pasword_hash
 import os
@@ -9,6 +9,10 @@ import os
 from datetime import datetime
 import pytz
 
+
+
+
+# ---------------------------- 以下は教材youtubeで記述された模範コード（転用時は注意）----------------------------
 # app = Flask(__name__)
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chat.db"
 # app.config["SECRET_KEY"] = os.urandom(24)
