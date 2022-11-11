@@ -9,6 +9,41 @@ import os
 from datetime import datetime
 import pytz
 
+app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chat.db"
+app.config["SECRET_KEY"] = os.urandom(24)
+db = SQLAlchemy(app)
+
+# ☆優先！【2-1】: ログイン画面　made by ibuki
+
+
+
+
+
+
+
+
+
+#【2-2】 : ユーザ登録画面
+#【2-3】 : パスワード再設定
+# ☆優先！【3-1】: ユーザTOP画面 made by okumura
+
+
+
+
+
+
+
+
+
+#【3-3】: ユーザ情報変更
+#【3-4】: 新規つながり検索
+# ☆優先！【4-1】: チャットルーム
+
+
+
+
+
 
 
 
