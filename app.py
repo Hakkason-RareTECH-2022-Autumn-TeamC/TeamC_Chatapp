@@ -14,7 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///chat.db"
 app.config["SECRET_KEY"] = os.urandom(24)
 db = SQLAlchemy(app)
 
-# ☆優先！【2-1】: ログイン画面　by oku
+# ☆優先！【2-1】: ログイン画面　担当：奥村
 
 
 
@@ -26,7 +26,7 @@ db = SQLAlchemy(app)
 
 #【2-2】 : ユーザ登録画面
 #【2-3】 : パスワード再設定
-# ☆優先！【3-1】: ユーザTOP画面 by ibu
+# ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
 
 
 
