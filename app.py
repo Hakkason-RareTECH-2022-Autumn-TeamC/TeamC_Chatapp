@@ -17,12 +17,13 @@ db = SQLAlchemy(app)
 Login_manager = LoginManager()
 Login_manager.init_app(app)
 
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(30), nullable=False, unique=True)
-    email = db.Column(db.String(50),nullable=False)
-    password = db.Column(db.String(12))
-    mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessages.id"))
+# class User(UserMixin, db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(30), nullable=False, unique=True)
+#     email = db.Column(db.String(50),nullable=False)
+#     password = db.Column(db.String(12))
+#     mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
+#     relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
 
 # class Message(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
