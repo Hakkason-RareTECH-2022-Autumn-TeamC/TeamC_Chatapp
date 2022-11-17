@@ -53,7 +53,7 @@ def load_user(user_id):
 
 #【2-1】 : 作業中☆ ユーザログイン機能 担当：奥村
 @app.route("/signin", methods=["GET", "POST"])
-def login():
+def signin():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
@@ -63,7 +63,7 @@ def login():
             login_user(user)
             return redirect("/usertop")
     else:
-        return render_template("test_oku.html")
+        return render_template("test_login.html")
 
 # #【2-2】 : 新規ユーザ登録画面
 @app.route("/signup", methods=["GET", "POST"])
@@ -84,8 +84,38 @@ def signup():
 
 
 #【2-3】 : パスワード再設定
-# ☆優先！【3-1】: ユーザTOP画面 担当：ibu
+# ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
+# -------------------- 挙動項目 -------------------- -------------------- 挙動項目 -----------------------
+# ⑦ データベース(Relationテーブル)からつながりユーザー(id / ユーザ名)を全件取得する。
+# ⑦ 取得したデータを/usertop.html(仮)に表示させる
+# ⑦ ↓
+# ⑦ リストからユーザを選択できる様にする
+# ⑦ ボタン押下によってチャットルームに画面遷移する(遷移先で選択したユーザ情報が自動的抽出される)
 
+# ⑧ ボタン押下によってつながりユーザ検索ページに画面遷移する
+
+# ⑨ ボタン押下によってユーザ情報変更/削除ページに画面遷移する
+
+# 17. ボタン押下によってログアウト処理が実行される
+# 17. ↓
+# 17. ログアウト処理が実行された後【2-1】に画面遷移する
+# -------------------- 挙動項目 ---------------------- -------------------- 挙動項目 ----------------------
+
+@app.route("/usertop", methods=["GET", "POST"])
+# def usertop():
+#     if request.method == "GET":
+#         return render_template("test_ibuki.html")
+    #     username = request.form.get("username")
+    #     email= request.form.get("email")
+    #     password = request.form.get("password")
+
+    #     user = User(username=username, email=email, password=generate_password_hash(password, method="sha256"))
+
+    #     db.session.add(user)
+    #     db.session.commit()
+    #     return redirect("/signin")
+
+    # else:
 
 
 
