@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>login</title>
+{% endblock %}
+{% block style %}
+        <link rel="stylesheet" href="../static/css/base.css">
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+            <h1 class="h1-login">LOG IN</h1>
+
+            <form action="" method="post">
+                <p>
+                    <label for="">メールアドレス</label>
+                    <br /><input type="email" class="txt" />
+                </p>
+
+                <p class="password">
+                    <label for="">パスワード</label>
+                    <br /><input type="text" class="txt" />
+                </p>
+
+                <div class="resetting">
+                    <a href="forget.html">パスワードを忘れた方（再設定）</a>
+                </div>
+
+                <div class="button">
+                    <a href="home.html" class="button-a">ログイン</a>
+                </div>
+
+                <div class="new">
+                    <a href="signup.html"
+                        >はじめてご利用の方（新規ユーザー登録）</a>
+                </div>
+            </form>
+        </div>
+    </body>
+{% endblock %}
