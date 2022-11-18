@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*SIDEの部分
+-------------------------------------*/
+
+.side-menu {
+    width: 70px; 
+    padding: 10px;
+    background-color: #4e709d;
+    height: 100vh;
+    position: relative;
+    box-shadow: 10px 0 0 #89a4c7;
+    border-left: 10px solid #4e709d;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.side-menu:hover {
+    width: 200px;
+}
+
+.side-menu ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.side-menu ul li {
+    list-style: none;
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.side-menu ul li :hover {
+    background-color: #6e85b7;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.side-menu ul li a .icon {
+    display: block;
+    height: 60px;
+    min-width: 50px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.side-menu ul li a .icon ion-icon {
+    font-size: 1.5rem;
+}
+
+.side-menu ul li a .table {
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.main-contents {
+    width: 70%;
+    padding: 10px;
+}
+
+/*MAINの部分
+-------------------------------------*/
+html {
+    font-size: 100%;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 550px;
+    height: 650px;
+    background-image: linear-gradient(-225deg, #7085b6 0%,#87a7d9 50%, #def3f8 100%
+    );
+    border-radius: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333947;
+    margin-top: 60px;
+}
+
+.search-box {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 60px;
+}
+
+.search-box input[type="text"] {
+    flex-grow: 1;
+    padding: 0.7rem 0 0.7rem 0.8rem;
+    border: 1px solid #333947;
+    border-radius: 1.5rem 0 0 1.5rem;
+}
+
+.search-box button {
+    cursor: pointer;
+    padding: 0.8rem 0.9rem 0.8rem 0.8rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    border: none;
+    background-color: #333947;
+    color: #fff;
+    font-size: 0.75rem;
+}
+
+.search-box input:focus {
+    outline: 0;
+    border: 1px solid #4ab6f6;
+}
+
+.search-box button:hover {
+    color: #4ab6f6;
+}
