@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+{% block title %}
+<title>account</title>
+{% endblock %} 
+{% block style %}
+        <link rel="stylesheet" href="../static/css/add.css">
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <div class="close">
+        <a href="home.html">
+            <ion-icon name="close"></ion-icon>
+        </a>
+    </div>
+    <h1>ユーザー内容変更</h1>
+    <form action="" method="post">
+        <p>
+            <label for="">新しいユーザ名</label>
+            <br /><input type="text" class="signup-txt" />
+        </p>
+
+        <p class="password">
+            <label for="">新しいメールアドレス</label>
+            <br /><input type="email" class="signup-txt" />
+        </p>
+        <div class="button">
+            <a href="home.html" class="button-a">変更</a>
+        </div>
+    </form>
+</div>
+ <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+{% endblock %}

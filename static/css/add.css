@@ -1,0 +1,85 @@
+/* account.html と add.html
+-------------------------------------*/
+html {
+    font-size: 100%;
+}
+body {background-color: #DBE6FD;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 480px;
+    height: 450px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #607bb6;
+    margin-bottom: 40px;
+}
+
+label {
+    font-size: 16px;
+    margin-left: 65px;
+}
+
+.signup-txt {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 350px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 3px ridge;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-bottom: 2px ridge #4e4ece;
+}
+
+a {
+    text-decoration: none;
+    color: #6e85b7;
+}
+
+.button-a {
+    color: #ffffff;
+}
+
+.button {
+    width: 350px;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    margin-top: 45px;
+    display: block;
+    border-radius: 10px;
+    font-size: 20px; 
+    text-align: center; 
+    cursor: pointer;
+    padding: 12px 12px;
+    background: #4d4dc3; 
+    color: #ffffff;
+    line-height: 1em; 
+}
+.button:hover {
+    background: #6e85b7; 
+}
+
+.close {
+    font-size: 30px;
+    position: right;
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 8px;
+}
