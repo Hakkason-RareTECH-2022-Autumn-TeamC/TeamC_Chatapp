@@ -83,3 +83,10 @@ a {
     margin-right: 15px;
     margin-top: 8px;
 }
+
+#btn {
+    text-align: right;
+    color: #6e85b7;
+    margin-right: 20px;
+    margin-top: 15px;
+}
