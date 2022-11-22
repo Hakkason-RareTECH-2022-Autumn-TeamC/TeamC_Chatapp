@@ -23,8 +23,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(50),nullable=False, unique=True)
     password = db.Column(db.String(12))
-    # mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
-    # relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
+    mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
+    relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
 
 # class Message(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
