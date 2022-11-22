@@ -23,8 +23,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(50),nullable=False, unique=True)
     password = db.Column(db.String(12))
-    mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
-    relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
+    # mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
+    # relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
 
 # class Message(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -51,9 +51,9 @@ def load_user(user_id):
 
 # -------------------------------- 以下にロジックを記述する ---------------------------------
 
-#【2-1】 : 作業中☆ ユーザログイン機能 担当：奥村
-@app.route("/signin", methods=["GET", "POST"])
-def signin():
+# #【2-1】 : 作業中☆ ユーザログイン機能 担当：奥村
+@app.route("/", methods=["GET", "POST"])
+def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
@@ -61,9 +61,9 @@ def signin():
         user = User.query.filter_by(email=email).first()
         if check_password_hash(user.password, password):
             login_user(user)
-            return redirect("/usertop")
+            return redirect("/home")
     else:
-        return render_template("test_login.html")
+        return render_template("login.html")
 
 # #【2-2】 : 新規ユーザ登録画面
 @app.route("/signup", methods=["GET", "POST"])
@@ -77,14 +77,18 @@ def signup():
 
         db.session.add(user)
         db.session.commit()
-        return redirect("/signin")
+        return redirect("/")
 
     else:
-        return render_template("test_signup.html")
+        return render_template("signup.html")
 
 
 #【2-3】 : パスワード再設定
-# ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
+
+# # ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
+@app.route("/home")
+def home():
+    return render_template("home.html")
 # -------------------- 挙動項目 -------------------- -------------------- 挙動項目 -----------------------
 # ⑦ データベース(Relationテーブル)からつながりユーザー(id / ユーザ名)を全件取得する。
 # ⑦ 取得したデータを/usertop.html(仮)に表示させる
@@ -100,32 +104,3 @@ def signup():
 # 17. ↓
 # 17. ログアウト処理が実行された後【2-1】に画面遷移する
 # -------------------- 挙動項目 ---------------------- -------------------- 挙動項目 ----------------------
-
-@app.route("/usertop", methods=["GET", "POST"])
-# def usertop():
-#     if request.method == "GET":
-#         return render_template("test_ibuki.html")
-    #     username = request.form.get("username")
-    #     email= request.form.get("email")
-    #     password = request.form.get("password")
-
-    #     user = User(username=username, email=email, password=generate_password_hash(password, method="sha256"))
-
-    #     db.session.add(user)
-    #     db.session.commit()
-    #     return redirect("/signin")
-
-    # else:
-
-
-
-
-
-
-
-
-#【3-3】: ユーザ情報変更
-#【3-4】: 新規つながり検索
-
-
-# ☆優先！【4-1】: チャットルーム
