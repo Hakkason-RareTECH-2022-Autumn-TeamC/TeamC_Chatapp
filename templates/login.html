@@ -12,21 +12,24 @@
             <form action="" method="post">
                 <p>
                     <label for="">メールアドレス</label>
-                    <br /><input type="email" class="txt" />
+                    <br /><input type="email" class="txt" name="email"/>
                 </p>
 
                 <p class="password">
                     <label for="">パスワード</label>
-                    <br /><input type="password" class="txt" />
+                    <br /><input type="password" class="txt" name="password"/>
                 </p>
 
                 <div class="resetting">
                     <a href="forget.html">パスワードを忘れた方（再設定）</a>
                 </div>
 
-                <div class="button">
+                <input
+                type="submit" value="ログイン" class="button"
+                />
+                <!-- <div class="button">
                     <a href="/home" class="button-a">ログイン</a>
-                </div>
+                </div> -->
 
                 <div class="new">
                     <a href="/signup"

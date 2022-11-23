@@ -23,8 +23,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email = db.Column(db.String(50),nullable=False, unique=True)
     password = db.Column(db.String(12))
-    mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
-    relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
+    # mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
+    # relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
 
 # class Message(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -87,6 +87,7 @@ def signup():
 
 # # ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
 @app.route("/home")
+@login_required
 def home():
     return render_template("home.html")
 # -------------------- 挙動項目 -------------------- -------------------- 挙動項目 -----------------------
