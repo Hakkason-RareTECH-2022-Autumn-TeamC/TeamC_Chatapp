@@ -101,7 +101,7 @@ def forget():
         return render_template("forget.html")
 
 
-# # ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
+# # ☆優先！【3-1】: home画面 担当：ibuki
 @app.route("/home")
 @login_required
 def home():
@@ -121,3 +121,10 @@ def home():
 # 17. ↓
 # 17. ログアウト処理が実行された後【2-1】に画面遷移する
 # -------------------- 挙動項目 ---------------------- -------------------- 挙動項目 ----------------------
+
+
+#【ユーザ内容変更】
+@app.route("/account")
+@login_required
+def account():
+    return render_template("account.html")
