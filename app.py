@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user
 #パスワードをハッシュ化して登録/チェックする機能をインポート
@@ -41,17 +41,15 @@ class User(UserMixin, db.Model):
 
 
 
-
 @Login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
 
 
+# -------------------------------- コード記述 -------------------------------- #
 
-# -------------------------------- 以下にロジックを記述する ---------------------------------
-
-# #【2-1】 : 作業中☆ ユーザログイン機能 担当：奥村
+#【2-1】 : 作業中☆ ユーザログイン機能 担当：奥村
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -65,7 +63,7 @@ def login():
     else:
         return render_template("login.html")
 
-# #【2-2】 : 新規ユーザ登録画面
+#【2-2】 : 新規ユーザ登録画面
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -85,20 +83,22 @@ def signup():
 #【2-3】 : パスワード再設定
 @app.route("/forget", methods=["GET", "POST"])
 def forget():
-    # if request.method == "POST":
-    #     username = request.form.get("username")
-    #     email= request.form.get("email")
-    #     password = request.form.get("password")
+    if request.method == "POST":
+        email= request.form.get("email")
+        newpass = request.form.get("newpass")
+        newword = request.form.get("newword")
 
-    #     user = User(username=username, email=email, password=generate_password_hash(password, method="sha256"))
+        user = User.query.filter_by(email=email).first()
+        if newpass == newword:
+            user.password = newpass = generate_password_hash(newpass, method="sha256")
+            db.session.add(user)
+            db.session.commit()
+            return redirect("/")
+        else:
+            return redirect("/forget")
 
-    #     db.session.add(user)
-    #     db.session.commit()
-    #     return redirect("/")
-
-    # else:
-        return render_template("test_forget.html")
-
+    else:
+        return render_template("forget.html")
 
 
 # # ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
