@@ -43,6 +43,10 @@ body {
     margin-top: 30px;
 }
 
+.space {
+    margin-top: 30px;
+}
+
 label {
     font-size: 16px;
     margin-left: 65px;
@@ -58,11 +62,6 @@ label {
     outline: none;
     border-bottom: 3px ridge;
 }
-
-.password {
-    margin-top: 20px;
-}
-
 
 a {
     text-decoration: none;
@@ -115,6 +114,6 @@ input[type="password"]:focus {
 
 /*forget.htmlとsignup.html*/
 .back-btn {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 60px;
 }
