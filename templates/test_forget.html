@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>forget password</title>
+{% endblock %}
+{% block style %}
+        <link rel="stylesheet" href="../static/css/base.css">
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+            <h1 class="h1-forget">パスワード再設定</h1>
+
+            <form action="" method="post">
+                <p>
+                    <label for="">メールアドレス</label>
+                    <br /><input type="email" class="txt" name="email" />
+                </p>
+
+                <p>
+                    <label for="">新しいパスワード</label>
+                    <br /><input type="password" class="txt" name="newpassword" />
+                </p>
+
+                <p>
+                    <label for="">新しいパスワード再入力</label>
+                    <br /><input type="password" class="txt" name="newpassword_re" />
+                </p>
+
+                <input
+                    type="submit"
+                    value="パスワードを再設定する"
+                    class="button"
+                />
+                <div class="back-btn">
+                    <a href="/">⇦戻る</a>
+                </div>
+            </form>
+        </div>
+{% endblock %}

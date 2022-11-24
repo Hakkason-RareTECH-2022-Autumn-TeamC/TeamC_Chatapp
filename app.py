@@ -82,8 +82,24 @@ def signup():
     else:
         return render_template("signup.html")
 
-
 #【2-3】 : パスワード再設定
+@app.route("/forget", methods=["GET", "POST"])
+def forget():
+    # if request.method == "POST":
+    #     username = request.form.get("username")
+    #     email= request.form.get("email")
+    #     password = request.form.get("password")
+
+    #     user = User(username=username, email=email, password=generate_password_hash(password, method="sha256"))
+
+    #     db.session.add(user)
+    #     db.session.commit()
+    #     return redirect("/")
+
+    # else:
+        return render_template("test_forget.html")
+
+
 
 # # ☆優先！【3-1】: ユーザTOP画面 担当：ibuki
 @app.route("/home")
