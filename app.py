@@ -1,8 +1,7 @@
 from flask import Flask
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user
-#パスワードをハッシュ化して登録/チェックする機能をインポート
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
@@ -26,19 +25,27 @@ class User(UserMixin, db.Model):
     # mymessageid = db.Column(db.Integer, db.ForeignKey("MyMessage.id"))
     # relasionid = db.Column(db.Integer, db.ForeignKey("Relation.id"))
 
-# class Message(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     senduser = db.Column(db.ForeignKey("User.id"), nullable=False, unique=True)
-#     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(pytz.timezone("Asia/Tokyo")))
-#     content = db.Column(db.String(300), nullable=False)
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fromuser = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False, unique=False)
+    touser = db.Column(db.Integer, unique=False, nullable=False)
+    content = db.Column(db.String(300), nullable=False)
+    # created_at = db.Column(db.DateTime, nullable=False, default=datetime.now(pytz.timezone("Asia/Tokyo")))
 
-# class MyMessage(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     messageid = db.Column(db.Integer, db.ForeignKey("Message.id"))
+class ChatRoom(db.Model):
+    name = db.Column(db.String, primary_key=True)
+    #messages = db.relationship("Relation",cascade="delete")
+    username = db.Column(db.String, db.ForeignKey("user.username"), primary_key=True)
 
-# class Relation(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)        
+class Relation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String)
+    user_name = db.Column(db.String, db.ForeignKey("user.username"))
+    chatroom = db.Column(db.String, db.ForeignKey("ChatRoom.name"))
 
+class MyMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    messageid = db.Column(db.Integer, db.ForeignKey("Message.id"))
 
 
 @Login_manager.user_loader
@@ -46,10 +53,9 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-
 # -------------------------------- コード記述 -------------------------------- #
 
-#【2-1】 : 作業中☆ ユーザログイン機能 担当：奥村
+#【2-1】: ユーザログイン機能 (パスワード変更後の再ログインでエラー発生中)
 @app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -61,9 +67,10 @@ def login():
             login_user(user)
             return redirect("/home")
     else:
+        # flash("「メールアドレス」または「パスワード」に誤りがあります。")
         return render_template("login.html")
 
-#【2-2】 : 新規ユーザ登録画面
+#【2-2】: 新規ユーザ登録画面(済)
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -80,7 +87,7 @@ def signup():
     else:
         return render_template("signup.html")
 
-#【2-3】 : パスワード再設定
+#【2-3】: パスワード再設定(済)
 @app.route("/forget", methods=["GET", "POST"])
 def forget():
     if request.method == "POST":
@@ -127,11 +134,40 @@ def home():
 @app.route("/account", methods=["GET", "POST"])
 @login_required
 def account():
-    return render_template("account.html")
+    if request.method == "POST":
+        re_name = request.form.get("re_name")
+        re_email = request.form.get("re_email")
+
+        user = User.query.filter_by(email=email).first()
+
+        if re_name == "":
+            user.email = re_email
+        elif re_email == "":
+            user.username = re_name
+        else:
+            return redirect("/account")
+
+        # user.code = form.code.data
+            
+        db.session.add(user)
+        db.session.commit()
+        return redirect("/account")
+    else:
+        return render_template("account.html")
 
 
 #【友達追加】add.html
 @app.route("/addfriends", methods=["GET", "POST"])
 @login_required
 def addfriends():
+
+
     return render_template("add.html")
+
+
+#【ログアウト】(済)
+@app.route("/logout", methods=["get"])
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
