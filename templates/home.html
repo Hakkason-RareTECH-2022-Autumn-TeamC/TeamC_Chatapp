@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>home</title>
+{% endblock %}
+{% block style %}
+        <link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+{% block content %}
+        <!-- SIDE -->
+        <div class="container">
+            <div class="side-menu">
+                <ul>
+                    <li class="list">
+                        <a href="/home">
+                            <span class="icon"
+                                ><ion-icon name="home-outline"></ion-icon
+                            ></span>
+                            <span class="table">ホーム</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/account">
+                        <span class="icon"
+                            ><ion-icon name="lock-closed-outline"></ion-icon></ion-icon
+                        ></span>
+                        <span class="table">アカウント</span>
+                    </a>
+                    </li>
+                    <li class="list">
+                        <a href="/addfriends">
+                        <span class="icon"
+                            ><ion-icon name="person-add-outline"></ion-icon></ion-icon></ion-icon
+                        ></span>
+                        <span class="table">友達追加</span>
+                    </a>
+                    </li>
+                    <li class="list">
+                        <a href="#">
+                        <span class="icon"
+                            ><ion-icon name="chatbubble-ellipses-outline"></ion-icon></ion-icon
+                        ></span>
+                        <span class="table">トーク</span>
+                    </a>
+                    </li>
+                    <li class="list">
+                        <a href="/logout">
+                        <span class="icon"
+                            ><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="table">ログアウト</span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <!-- MAIN -->
+            <main class="main-contents">
+            <div class="wrapper">
+            <h1>繋がりリスト一覧</h1>
+            <form action="" method="post">
+                <div class="search-box">
+                    <input type="text" placeholder="検索">
+                        <button type="submit">
+                            <ion-icon name="search-outline"></ion-icon>
+                                <i class="fas fa-search fa-fw"></i>
+                        </button>
+                </div>
+            </form>
+            </div>
+            </main>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+{% endblock %}
+

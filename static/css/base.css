@@ -1,0 +1,119 @@
+/* login.html,forget.html,signup.html
+-------------------------------------*/
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: #DBE6FD;
+}
+
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 480px;
+    height: 550px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+
+.h1-login {
+    text-align: center;
+    font-size: 40px;
+    color: #607bb6;
+    margin-top: 50px;
+}
+
+.h1-forget {
+    text-align: center;
+    font-size: 35px;
+    color: #607bb6;
+    margin-top: 40px;
+}
+
+.h1-signup {
+    text-align: center;
+    font-size: 40px;
+    color: #607bb6;
+    margin-top: 30px;
+}
+
+.space {
+    margin-top: 30px;
+}
+
+label {
+    font-size: 16px;
+    margin-left: 65px;
+}
+
+.txt {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 350px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 3px ridge;
+}
+
+a {
+    text-decoration: none;
+    color: #6e85b7;
+    display: block;
+}
+
+.resetting {
+    text-align: right;
+    margin-right: 50px;
+}
+
+.new {
+    text-align: center;
+    margin-top: 40px;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-bottom: 2px ridge #4e4ece;
+}
+
+.button {
+    width: 350px;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    margin-top: 45px;
+    display: block;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    padding: 12px 12px;
+    background: #4d4dc3;
+    color: #ffffff;
+    line-height: 1em;
+}
+
+.button:hover {
+    background: #6e85b7;
+}
+
+/*login.html*/
+.button-a {
+    color: #ffffff;
+}
+
+/*forget.htmlとsignup.html*/
+.back-btn {
+    margin-top: 30px;
+    margin-left: 60px;
+}

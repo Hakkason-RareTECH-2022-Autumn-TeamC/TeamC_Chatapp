@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>signup</title>
+{% endblock %}
+{% block style %}
+        <link rel="stylesheet" href="../static/css/base.css">
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+            <h1 class="h1-signup">SIGN UP</h1>
+
+            <form action="" method="post">
+                <p class="space">
+                    <label for="">ユーザーネーム</label>
+                    <br /><input type="text" class="txt" name="username" />
+                </p>
+
+                <p class="space">
+                    <label for="">メールアドレス</label>
+                    <br /><input type="text" class="txt" name="email" />
+                </p>
+
+                <p class="space">
+                    <label for="">パスワード</label>
+                    <br /><input type="password" class="txt" name="password" />
+                </p>
+
+                <!-- <p class="password">
+                    <label for="">パスワード再入力</label>
+                    <br /><input type="text" class="txt" />
+                </p> -->
+
+                <input type="submit" value="サインアップ" class="button" />
+
+                <div class="back-btn">
+                    <a href="/">⇦戻る</a>
+                </div>
+            </form>
+        </div>
+{% endblock %}
