@@ -2,7 +2,6 @@ from flask import Flask
 from flask import render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user
-#パスワードをハッシュ化して登録/チェックする機能をインポート
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
@@ -135,3 +134,11 @@ def account():
 @login_required
 def addfriends():
     return render_template("add.html")
+
+
+#【ログアウト】
+@app.route("/logout", methods=["get"])
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
