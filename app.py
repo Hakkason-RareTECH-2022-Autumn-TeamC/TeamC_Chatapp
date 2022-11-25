@@ -101,7 +101,7 @@ def forget():
         return render_template("forget.html")
 
 
-# # ☆優先！【3-1】: home画面 担当：ibuki
+#【3-1】: home画面 
 @app.route("/home")
 @login_required
 def home():
@@ -123,8 +123,15 @@ def home():
 # -------------------- 挙動項目 ---------------------- -------------------- 挙動項目 ----------------------
 
 
-#【ユーザ内容変更】
-@app.route("/account")
+#【ユーザ内容変更】acount.html
+@app.route("/account", methods=["GET", "POST"])
 @login_required
 def account():
     return render_template("account.html")
+
+
+#【友達追加】add.html
+@app.route("/addfriends", methods=["GET", "POST"])
+@login_required
+def addfriends():
+    return render_template("add.html")
