@@ -34,14 +34,14 @@ class Message(db.Model):
 
 class ChatRoom(db.Model):
     name = db.Column(db.String, primary_key=True)
-    #messages = db.relationship("Relation",cascade="delete")
-    username = db.Column(db.String, db.ForeignKey("user.username"), primary_key=True)
+    # messages = db.relationship("Relation",cascade="delete")
+    # username = db.Column(db.String, db.ForeignKey("user.username"), primary_key=True)
 
 class Relation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String)
-    user_name = db.Column(db.String, db.ForeignKey("user.username"))
-    chatroom = db.Column(db.String, db.ForeignKey("ChatRoom.name"))
+    # user_name = db.Column(db.String, db.ForeignKey("user.username"))
+    # chatroom = db.Column(db.String, db.ForeignKey("ChatRoom.name"))
 
 class MyMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -112,6 +112,8 @@ def forget():
 @app.route("/home")
 @login_required
 def home():
+    # user = User.query.all()
+    # return render_template('home/list.html', user=user)
     return render_template("home.html")
 # -------------------- 挙動項目 -------------------- -------------------- 挙動項目 -----------------------
 # ⑦ データベース(Relationテーブル)からつながりユーザー(id / ユーザ名)を全件取得する。
@@ -134,20 +136,19 @@ def home():
 @app.route("/account", methods=["GET", "POST"])
 @login_required
 def account():
+    user = User.query.all()
     if request.method == "POST":
-        re_name = request.form.get("re_name")
-        re_email = request.form.get("re_email")
+        rename = request.form.get("rename")
+        reemail = request.form.get("reemail")
 
-        user = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(id=user.id).first()
 
-        if re_name == "":
-            user.email = re_email
-        elif re_email == "":
-            user.username = re_name
+        if rename == "":
+            user.email = reemail
+        elif reemail == "":
+            user.username = rename
         else:
             return redirect("/account")
-
-        # user.code = form.code.data
             
         db.session.add(user)
         db.session.commit()
@@ -165,7 +166,7 @@ def addfriends():
     return render_template("add.html")
 
 
-#【ログアウト】(済)
+#【ログアウト】l(済)
 @app.route("/logout", methods=["get"])
 @login_required
 def logout():
