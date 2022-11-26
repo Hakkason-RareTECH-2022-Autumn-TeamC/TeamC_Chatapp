@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, redirect, flash
+from flask import render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -45,7 +45,7 @@ class Relation(db.Model):
 
 class MyMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    messageid = db.Column(db.Integer, db.ForeignKey("Message.id"))
+    # messageid = db.Column(db.Integer, db.ForeignKey("Message.id"))
 
 
 @Login_manager.user_loader
@@ -166,7 +166,7 @@ def addfriends():
     return render_template("add.html")
 
 
-#【ログアウト】l(済)
+#【ログアウト】(済)
 @app.route("/logout", methods=["get"])
 @login_required
 def logout():
