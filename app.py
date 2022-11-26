@@ -171,3 +171,12 @@ def addfriends():
 def logout():
     logout_user()
     return redirect("/")
+
+
+ #【4-1】: チャットルーム
+@app.route("/chatroom" , methods=["GET", "POST"])
+def chatroom():
+    return render_template("chat_form.html")
+
+#【入力フォーム】
+#【退出、消去ボタン】
